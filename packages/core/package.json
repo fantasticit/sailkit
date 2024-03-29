@@ -1,0 +1,28 @@
+{
+  "name": "@sailkit/core",
+  "version": "0.0.1",
+  "type": "module",
+  "main": "./dist/index.es.js",
+  "types": "./dist/index.d.ts",
+  "files": [
+    "dist"
+  ],
+  "exports": {
+    ".": {
+      "import": "./dist/index.es.js",
+      "require": "./dist/index.cjs.js"
+    }
+  },
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build"
+  },
+  "devDependencies": {
+    "typescript": "^5.2.2",
+    "vite": "^5.2.0"
+  },
+  "dependencies": {
+    "@tiptap/core": "^2.2.4",
+    "@tiptap/pm": "^2.2.4"
+  }
+}
