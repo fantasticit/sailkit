@@ -69,14 +69,24 @@ importers:
         specifier: ^5.2.0
         version: 5.2.7(@types/node@20.11.30)
 
+  packages/document:
+    dependencies:
+      "@sailkit/core":
+        specifier: workspace:^
+        version: link:../core
+    devDependencies:
+      typescript:
+        specifier: ^5.2.2
+        version: 5.4.3
+      vite:
+        specifier: ^5.2.0
+        version: 5.2.7(@types/node@20.11.30)
+
   packages/text-kit:
     dependencies:
       "@sailkit/core":
         specifier: workspace:^
         version: link:../core
-      "@tiptap/core":
-        specifier: ^2.2.4
-        version: 2.2.4(@tiptap/pm@2.2.4)
       "@tiptap/extension-blockquote":
         specifier: ^2.2.4
         version: 2.2.4(@tiptap/core@2.2.4)
