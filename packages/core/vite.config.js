@@ -9,8 +9,9 @@ export default defineConfig({
   build: {
     lib: {
       entry: "./src/index.ts",
-      formats: ["es", "cjs"],
+      formats: ["es", "cjs", "umd", "iife"],
       fileName: (format, entry) => `${entry}.${format}.js`,
+      name: "sailkit",
     },
   },
   resolve: { alias: { src: resolve("src/") } },
