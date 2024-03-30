@@ -1,0 +1,134 @@
+:root {
+  --box-shadow: rgb(0 0 0 / 10%) 0 0 10px;
+}
+
+.ProseMirror {
+  font-family: "Chinese Quote", "Segoe UI", Roboto, RobotoNum, "PingFang SC", "Hiragino Sans GB",
+    "Microsoft YaHei", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  line-height: 1.74;
+  letter-spacing: 0.008em;
+  color: var(--semi-color-text-0);
+  word-break: break-word;
+  word-wrap: break-word;
+  white-space: break-spaces;
+  outline: none !important;
+  padding: 0 16px;
+
+  &:focus-visible {
+    outline: none;
+  }
+
+  summary {
+    display: list-item;
+  }
+
+  blockquote,
+  dd,
+  dl,
+  figure,
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6,
+  hr,
+  p,
+  pre {
+    margin: 0;
+  }
+
+  a {
+    color: var(--semi-color-link);
+    text-decoration: underline;
+  }
+
+  img {
+    border: 1px solid var(--semi-color-border);
+    border-radius: var(--border-radius);
+  }
+
+  sub,
+  sup {
+    position: relative;
+    font-size: 75%;
+    line-height: 0;
+    vertical-align: baseline;
+  }
+
+  sub {
+    bottom: -0.25em;
+  }
+
+  sup {
+    top: -0.5em;
+  }
+
+  p {
+    margin-top: 0.75rem;
+    margin-bottom: 0;
+    font-size: 1em;
+    font-weight: normal;
+    line-height: 1.714;
+    letter-spacing: -0.005em;
+  }
+
+  blockquote {
+    box-sizing: border-box;
+    padding-left: 10px;
+    border-left: 2px solid var(--semi-color-fill-2);
+    margin: 0.75rem 0;
+    color: var(--semi-color-text-2);
+  }
+
+  hr {
+    position: relative;
+    height: 24px;
+    background-color: transparent;
+    border: 0;
+
+    &::after {
+      position: absolute;
+      top: 11px;
+      left: 0;
+      display: block;
+      width: 100%;
+      height: 2px;
+      background: var(--semi-color-border);
+      content: "";
+    }
+  }
+}
+
+.ProseMirror-selectednode {
+  position: relative;
+
+  &::after {
+    position: absolute;
+    pointer-events: none;
+    border: 1px solid #4989ea !important;
+    border-radius: 4px;
+    content: "";
+    inset: 0;
+  }
+}
+
+.resize-cursor {
+  cursor: ew-resize;
+  /* stylelint-disable-next-line declaration-block-no-duplicate-properties */
+  cursor: col-resize;
+}
+
+body[theme-mode="dark"] {
+  .ProseMirror {
+    img {
+      opacity: 0.75;
+    }
+  }
+}
+
+@media print {
+  .ProseMirror {
+    padding: 1cm;
+  }
+}
