@@ -1,12 +1,12 @@
 import { Extension } from "@sailkit/core";
 
-import { Blockquote, BlockquoteOptions } from "@tiptap/extension-blockquote";
-import { Bold, BoldOptions } from "@tiptap/extension-bold";
-import { Code, CodeOptions } from "@tiptap/extension-code";
-import { HardBreak, HardBreakOptions } from "@tiptap/extension-hard-break";
-import { Italic, ItalicOptions } from "@tiptap/extension-italic";
-import { Paragraph, ParagraphOptions } from "@tiptap/extension-paragraph";
-import { Strike, StrikeOptions } from "@tiptap/extension-strike";
+import { Blockquote, type BlockquoteOptions } from "@tiptap/extension-blockquote";
+import { Bold, type BoldOptions } from "@tiptap/extension-bold";
+import { Code, type CodeOptions } from "@tiptap/extension-code";
+import { HardBreak, type HardBreakOptions } from "@tiptap/extension-hard-break";
+import { Italic, type ItalicOptions } from "@tiptap/extension-italic";
+import { Paragraph, type ParagraphOptions } from "@tiptap/extension-paragraph";
+import { Strike, type StrikeOptions } from "@tiptap/extension-strike";
 import { Text } from "@tiptap/extension-text";
 
 export interface TextKitOptions {
