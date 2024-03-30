@@ -18,10 +18,11 @@
     "build": "vite build"
   },
   "devDependencies": {
+    "@sailkit/core": "workspace:^",
     "typescript": "^5.2.2",
     "vite": "^5.2.0"
   },
-  "dependencies": {
+  "peerDependencies": {
     "@sailkit/core": "workspace:^"
   }
 }

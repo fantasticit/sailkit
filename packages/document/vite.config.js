@@ -11,6 +11,14 @@ export default defineConfig({
       formats: ["es", "cjs"],
       fileName: (format, entry) => `${entry}.${format}.js`,
     },
+    rollupOptions: {
+      external: ["@sailkit/core"],
+      output: {
+        globals: {
+          "@sailkit/core": "sailkit",
+        },
+      },
+    },
   },
   resolve: { alias: { src: resolve("src/") } },
   plugins: [dts(), compress()],
