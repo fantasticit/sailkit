@@ -70,11 +70,10 @@ importers:
         version: 5.2.7(@types/node@20.11.30)
 
   packages/document:
-    dependencies:
+    devDependencies:
       "@sailkit/core":
         specifier: workspace:^
         version: link:../core
-    devDependencies:
       typescript:
         specifier: ^5.2.2
         version: 5.4.3
@@ -84,9 +83,6 @@ importers:
 
   packages/text-kit:
     dependencies:
-      "@sailkit/core":
-        specifier: workspace:^
-        version: link:../core
       "@tiptap/extension-blockquote":
         specifier: ^2.2.4
         version: 2.2.4(@tiptap/core@2.2.4)
@@ -111,10 +107,10 @@ importers:
       "@tiptap/extension-text":
         specifier: ^2.2.4
         version: 2.2.4(@tiptap/core@2.2.4)
-      "@tiptap/pm":
-        specifier: ^2.2.4
-        version: 2.2.4
     devDependencies:
+      "@sailkit/core":
+        specifier: workspace:^
+        version: link:../core
       typescript:
         specifier: ^5.2.2
         version: 5.4.3
