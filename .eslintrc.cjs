@@ -35,7 +35,7 @@ module.exports = {
         groups: [
           ["react"],
           ["@douyinfe(.*)$"],
-          ["(@)?think(.*)$"],
+          ["(@)?sailkit(.*)$"],
           ["(@)?tiptap(.*)$"],
           ["^@?\\w"],
           ["@/(.*)"],
