@@ -14,5 +14,5 @@ export default defineConfig({
     },
   },
   resolve: { alias: { src: resolve("src/") } },
-  plugins: [dts(), compress()],
+  plugins: [dts({ rollupTypes: true }), compress()],
 });
