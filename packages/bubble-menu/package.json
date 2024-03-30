@@ -10,7 +10,7 @@
     ".": {
       "import": "./dist/index.es.js",
       "require": "./dist/index.cjs.js",
-      "types": "./dist/index.d.ts"
+      "types": "./dist/packages/bubble-menu/src/index.d.ts"
     }
   },
   "scripts": {
