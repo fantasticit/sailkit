@@ -1,7 +1,6 @@
 import { useEffect, useRef, useState } from "react";
 
-import { Editor } from "@sailkit/core";
-
+import { Editor } from "./Editor";
 import { isDeepEqual } from "./isEqual";
 
 type MapFn<T, R> = (arg: T) => R;

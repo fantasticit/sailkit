@@ -7,6 +7,7 @@ export * from "./NodeViewContent";
 export * from "./NodeViewWrapper";
 export * from "./ReactNodeViewRenderer";
 export * from "./ReactRenderer";
+export * from "./useActive";
 export * from "./useAttrs";
 export * from "./useEditor";
 export * from "./useReactNodeView";
