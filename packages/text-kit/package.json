@@ -10,7 +10,7 @@
     ".": {
       "import": "./dist/index.es.js",
       "require": "./dist/index.cjs.js",
-      "types": "./dist/packages/text-kit/src/index.d.ts"
+      "types": "./dist/index.d.ts"
     }
   },
   "scripts": {
@@ -21,16 +21,6 @@
     "@sailkit/core": "workspace:^",
     "typescript": "^5.2.2",
     "vite": "^5.2.0"
-  },
-  "dependencies": {
-    "@tiptap/extension-blockquote": "^2.2.4",
-    "@tiptap/extension-bold": "^2.2.4",
-    "@tiptap/extension-code": "^2.2.4",
-    "@tiptap/extension-hard-break": "^2.2.4",
-    "@tiptap/extension-italic": "^2.2.4",
-    "@tiptap/extension-paragraph": "^2.2.4",
-    "@tiptap/extension-strike": "^2.2.4",
-    "@tiptap/extension-text": "^2.2.4"
   },
   "peerDependencies": {
     "@sailkit/core": "workspace:^"

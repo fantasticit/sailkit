@@ -11,7 +11,7 @@ export default defineConfig({
       entry: "./src/index.ts",
       formats: ["es", "cjs", "umd", "iife"],
       fileName: (format, entry) => `${entry}.${format}.js`,
-      name: "sailkit",
+      name: "Sailkit",
     },
   },
   resolve: { alias: { src: resolve("src/") } },

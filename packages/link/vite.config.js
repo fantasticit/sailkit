@@ -8,18 +8,19 @@ export default defineConfig({
   build: {
     lib: {
       entry: "./src/index.ts",
-      formats: ["es", "cjs"],
+      formats: ["es", "cjs", "umd", "iife"],
       fileName: (format, entry) => `${entry}.${format}.js`,
+      name: "SailkitLink",
     },
     rollupOptions: {
       external: ["@sailkit/core"],
       output: {
         globals: {
-          "@sailkit/core": "sailkit",
+          "@sailkit/core": "Sailkit",
         },
       },
     },
   },
   resolve: { alias: { src: resolve("src/") } },
-  plugins: [dts(), compress()],
+  plugins: [dts({ rollupTypes: true }), compress()],
 });

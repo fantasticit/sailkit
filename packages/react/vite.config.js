@@ -8,14 +8,16 @@ export default defineConfig({
   build: {
     lib: {
       entry: "./src/index.ts",
-      formats: ["es", "cjs"],
+      formats: ["es", "cjs", "umd", "iife"],
       fileName: (format, entry) => `${entry}.${format}.js`,
+      name: "SailkitReact",
     },
     rollupOptions: {
-      external: ["@sailkit/core", "react", "react-dom"],
+      external: ["@sailkit/core", "@sailkit/bubble-menu", "react", "react-dom"],
       output: {
         globals: {
-          "@sailkit/core": "sailkit",
+          "@sailkit/core": "Sailkit",
+          "@sailkit/bubble-menu": "SailkitBubbleMenu",
           react: "React",
           "react-dom": "ReactDOM",
         },

@@ -1,6 +1,6 @@
 import { Extension } from "@sailkit/core";
 
-import { BubbleMenuPlugin, BubbleMenuPluginProps } from "./bubble-menu-plugin";
+import { BubbleMenuPlugin, type BubbleMenuPluginProps } from "./bubble-menu-plugin";
 
 export type BubbleMenuOptions = Omit<BubbleMenuPluginProps, "editor" | "element"> & {
   element: HTMLElement | null;

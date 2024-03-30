@@ -5,7 +5,7 @@
     "strict": true,
     "jsx": "react",
     "importHelpers": true,
-    "moduleResolution": "node",
+    "moduleResolution": "Bundler",
     "resolveJsonModule": true,
     "esModuleInterop": true,
     "allowSyntheticDefaultImports": true,
@@ -15,9 +15,6 @@
     "rootDir": ".",
     "allowJs": true,
     "checkJs": false,
-    "paths": {
-      "@sailkit/*": ["packages/*/dist", "packages/*/src"]
-    },
     "lib": ["esnext", "dom", "dom.iterable", "scripthost"]
   },
   "include": ["**/*.d.ts", "**/*.ts", "**/*.tsx", "**/*.vue"],
