@@ -11,6 +11,7 @@ import { find, registerCustomProtocol, reset } from "linkifyjs";
 
 import { autolink } from "./helpers/autolink";
 import { clickHandler } from "./helpers/clickHandler";
+import { createOnLinkSetPlugin, OnLinkSetOptions } from "./helpers/onLinkSet";
 import { pasteHandler } from "./helpers/pasteHandler";
 
 export interface LinkProtocolOptions {
@@ -64,6 +65,8 @@ export interface LinkOptions {
    * @returns - True if the url is valid, false otherwise.
    */
   validate?: (url: string) => boolean;
+
+  onLinkSet?: OnLinkSetOptions["onLinkSet"];
 }
 
 declare module "@sailkit/core" {
@@ -280,6 +283,15 @@ export const Link = Mark.create<LinkOptions>({
       );
     }
 
+    if (this.options.onLinkSet) {
+      plugins.push(
+        createOnLinkSetPlugin({
+          editor: this.editor,
+          type: this.type,
+          onLinkSet: this.options.onLinkSet,
+        }),
+      );
+    }
     return plugins;
   },
 });
