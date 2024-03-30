@@ -100,6 +100,22 @@ importers:
         specifier: ^5.2.0
         version: 5.2.7(@types/node@20.11.30)
 
+  packages/link:
+    dependencies:
+      linkifyjs:
+        specifier: ^4.1.3
+        version: 4.1.3
+    devDependencies:
+      "@sailkit/core":
+        specifier: workspace:^
+        version: link:../core
+      typescript:
+        specifier: ^5.2.2
+        version: 5.4.3
+      vite:
+        specifier: ^5.2.0
+        version: 5.2.7(@types/node@20.11.30)
+
   packages/text-kit:
     dependencies:
       "@tiptap/extension-blockquote":
@@ -3941,6 +3957,13 @@ packages:
       }
     dependencies:
       uc.micro: 2.1.0
+    dev: false
+
+  /linkifyjs@4.1.3:
+    resolution:
+      {
+        integrity: sha512-auMesunaJ8yfkHvK4gfg1K0SaKX/6Wn9g2Aac/NwX+l5VdmFZzo/hdPGxEOETj+ryRa4/fiOPjeeKURSAJx1sg==,
+      }
     dev: false
 
   /lint-staged@15.2.2:

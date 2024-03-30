@@ -1,0 +1,31 @@
+{
+  "name": "@sailkit/link",
+  "version": "0.0.1",
+  "type": "module",
+  "main": "./dist/index.es.js",
+  "files": [
+    "dist"
+  ],
+  "exports": {
+    ".": {
+      "import": "./dist/index.es.js",
+      "require": "./dist/index.cjs.js",
+      "types": "./dist/index.d.ts"
+    }
+  },
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build"
+  },
+  "devDependencies": {
+    "@sailkit/core": "workspace:^",
+    "typescript": "^5.2.2",
+    "vite": "^5.2.0"
+  },
+  "peerDependencies": {
+    "@sailkit/core": "workspace:^"
+  },
+  "dependencies": {
+    "linkifyjs": "^4.1.3"
+  }
+}
