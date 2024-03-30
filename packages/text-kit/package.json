@@ -23,7 +23,6 @@
   },
   "dependencies": {
     "@sailkit/core": "workspace:^",
-    "@tiptap/core": "^2.2.4",
     "@tiptap/extension-blockquote": "^2.2.4",
     "@tiptap/extension-bold": "^2.2.4",
     "@tiptap/extension-code": "^2.2.4",
