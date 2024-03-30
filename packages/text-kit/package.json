@@ -1,0 +1,37 @@
+{
+  "name": "@sailkit/text-kit",
+  "version": "0.0.1",
+  "type": "module",
+  "main": "./dist/index.es.js",
+  "files": [
+    "dist"
+  ],
+  "exports": {
+    ".": {
+      "import": "./dist/index.es.js",
+      "require": "./dist/index.cjs.js",
+      "types": "./dist/index.d.ts"
+    }
+  },
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build"
+  },
+  "devDependencies": {
+    "typescript": "^5.2.2",
+    "vite": "^5.2.0"
+  },
+  "dependencies": {
+    "@sailkit/core": "workspace:^",
+    "@tiptap/core": "^2.2.4",
+    "@tiptap/extension-blockquote": "^2.2.4",
+    "@tiptap/extension-bold": "^2.2.4",
+    "@tiptap/extension-code": "^2.2.4",
+    "@tiptap/extension-hard-break": "^2.2.4",
+    "@tiptap/extension-italic": "^2.2.4",
+    "@tiptap/extension-paragraph": "^2.2.4",
+    "@tiptap/extension-strike": "^2.2.4",
+    "@tiptap/extension-text": "^2.2.4",
+    "@tiptap/pm": "^2.2.4"
+  }
+}
