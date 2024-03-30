@@ -1,0 +1,54 @@
+.linkCard {
+  display: flex;
+  border-radius: 8px;
+  background: #fff;
+
+  position: relative;
+  z-index: 2;
+  display: flex;
+  align-items: center;
+  padding: 8px 12px;
+  padding: calc(var(--otl-scale, 1) * 8px) calc(var(--otl-scale, 1) * 12px);
+  background: hsla(0, 0%, 100%, 0.48);
+  box-shadow:
+    0 1px 2px 0 rgba(0, 0, 0, 0.12),
+    0 0 1px 0 rgba(0, 0, 0, 0.2);
+  border-radius: 8px;
+  cursor: pointer;
+
+  .left {
+    width: calc(var(--sailkit-scale, 1) * 32px);
+    height: calc(var(--sailkit-scale, 1) * 32px);
+    margin-right: 8px;
+    margin-right: calc(var(--sailkit-scale, 1) * 8px);
+    background-size: 100% 100%;
+  }
+
+  .right {
+    flex: 1;
+    color: hsla(0, 0%, 5%, 0.9);
+    line-height: calc(var(--sailkit-scale, 1) * 22px);
+    min-width: 0;
+
+    div {
+      width: 100%;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+
+      &.title {
+        font-size: 14px;
+        font-size: calc(var(--sailkit-scale, 1) * 14px);
+        font-weight: 600;
+        line-height: 22px;
+        line-height: calc(var(--sailkit-scale, 1) * 22px);
+      }
+
+      &.description {
+        font-size: calc(var(--sailkit-scale, 1) * 12px);
+        line-height: calc(var(--sailkit-scale, 1) * 20px);
+        font-weight: 400;
+      }
+    }
+  }
+}
