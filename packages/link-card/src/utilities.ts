@@ -22,7 +22,7 @@ export const setToLinkCard = (editor: Editor, options: Omit<LinkAtSelection, "up
     .command(({ tr, dispatch, state }) => {
       const schema = state.schema;
       const node = schema.nodes[LinkCard.name].create({ text, href });
-      const from = tr.mapping.map(start);
+      const from = tr.mapping.map(Math.max(0, start - 1));
       const to = tr.mapping.map(end);
       tr.deleteRange(from, to);
       tr.insert(from, node);

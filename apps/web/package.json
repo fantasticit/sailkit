@@ -12,13 +12,15 @@
   "dependencies": {
     "@douyinfe/semi-icons": "^2.55.2",
     "@douyinfe/semi-ui": "^2.55.2",
+    "@sailkit/blocktile": "workspace:^",
     "@sailkit/bubble-menu": "workspace:^",
     "@sailkit/core": "workspace:^",
     "@sailkit/document": "workspace:^",
     "@sailkit/link": "workspace:^",
-    "@sailkit/link-card": "workspace:0.0.1-beta.1",
+    "@sailkit/link-card": "workspace:^",
     "@sailkit/react": "workspace:^",
     "@sailkit/text-kit": "workspace:^",
+    "@sailkit/uuid": "workspace:^",
     "react": "^18.2.0",
     "react-dom": "^18.2.0"
   },
