@@ -10,7 +10,7 @@ export default defineConfig({
       entry: "./src/index.ts",
       formats: ["es", "cjs", "umd", "iife"],
       fileName: (format, entry) => `${entry}.${format}.js`,
-      name: "SailkitReact",
+      name: "SailkitTextKit",
     },
     rollupOptions: {
       external: ["@sailkit/core"],
