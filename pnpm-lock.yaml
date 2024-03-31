@@ -64,6 +64,9 @@ importers:
       "@douyinfe/semi-ui":
         specifier: ^2.55.2
         version: 2.55.2(react-dom@18.2.0)(react@18.2.0)
+      "@sailkit/blocktile":
+        specifier: workspace:0.0.1-beta.2
+        version: link:../../packages/blocktile
       "@sailkit/bubble-menu":
         specifier: workspace:^
         version: link:../../packages/bubble-menu
@@ -77,7 +80,7 @@ importers:
         specifier: workspace:^
         version: link:../../packages/link
       "@sailkit/link-card":
-        specifier: workspace:0.0.1-beta.1
+        specifier: workspace:^
         version: link:../../packages/link-card
       "@sailkit/react":
         specifier: workspace:^
@@ -119,6 +122,18 @@ importers:
       sass:
         specifier: ^1.72.0
         version: 1.72.0
+      typescript:
+        specifier: ^5.2.2
+        version: 5.4.3
+      vite:
+        specifier: ^5.2.0
+        version: 5.2.7(@types/node@20.11.30)(sass@1.72.0)
+
+  packages/blocktile:
+    devDependencies:
+      "@sailkit/core":
+        specifier: workspace:^
+        version: link:../core
       typescript:
         specifier: ^5.2.2
         version: 5.4.3
