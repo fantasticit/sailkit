@@ -1,6 +1,6 @@
-<p align="center">
-  <h2>Sailkit</h2>
-</p>
+<h2 align="center">
+    Sailkit
+</h2>
 
 <p align="center">
 Sailkit is a toolkit editor suite based on tiptap and prosemirror.
