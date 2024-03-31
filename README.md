@@ -27,13 +27,6 @@ export const Editor = () => {
 
   return (
     <div>
-      {editor && (
-        <>
-          <LinkBubbleMenu editor={editor} />
-          <LinkCardBubbleMenu editor={editor} />
-        </>
-      )}
-      <div>{editor && <LinkStaticMenu editor={editor} />}</div>
       <EditorContent className={styles.editorWrapper} editor={editor}></EditorContent>
     </div>
   );
