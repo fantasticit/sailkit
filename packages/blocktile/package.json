@@ -1,0 +1,33 @@
+{
+  "name": "@sailkit/blocktile",
+  "version": "0.0.1-beta.2",
+  "type": "module",
+  "main": "./dist/index.es.js",
+  "files": [
+    "dist"
+  ],
+  "exports": {
+    ".": {
+      "import": "./dist/index.es.js",
+      "require": "./dist/index.cjs.js",
+      "types": "./dist/index.d.ts"
+    },
+    "./style.css": {
+      "import": "./dist/style.css",
+      "require": "./dist/style.css",
+      "types": "./dist/style.css"
+    }
+  },
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build"
+  },
+  "devDependencies": {
+    "@sailkit/core": "workspace:^",
+    "typescript": "^5.2.2",
+    "vite": "^5.2.0"
+  },
+  "peerDependencies": {
+    "@sailkit/core": "workspace:^"
+  }
+}
