@@ -2,7 +2,7 @@ import { EditorContent, useEditor } from "@sailkit/react";
 import { FullExtensions } from "./kit";
 
 import styles from "./index.module.scss";
-import { LinkBubbleMenu, LinkStaticMenu } from "./menus/link";
+import { LinkBubbleMenu, LinkStaticMenu, LinkCardBubbleMenu } from "./extensions/link";
 
 export const Editor = () => {
   const editor = useEditor({
@@ -11,7 +11,12 @@ export const Editor = () => {
 
   return (
     <div>
-      {editor && <LinkBubbleMenu editor={editor} />}
+      {editor && (
+        <>
+          <LinkBubbleMenu editor={editor} />
+          <LinkCardBubbleMenu editor={editor} />
+        </>
+      )}
       <div>{editor && <LinkStaticMenu editor={editor} />}</div>
       <EditorContent className={styles.editorWrapper} editor={editor}></EditorContent>
     </div>

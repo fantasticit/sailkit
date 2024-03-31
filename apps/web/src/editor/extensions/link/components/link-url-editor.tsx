@@ -1,12 +1,8 @@
 import React, { useCallback, useEffect, useRef, useState } from "react";
-import ReactDOM from "react-dom";
-import { Editor, posToDOMRect } from "@sailkit/core";
-import { tippy, TippyInstance } from "@sailkit/bubble-menu";
 
 import { Row, Col, Button, Input } from "@douyinfe/semi-ui";
-import { getLinkAtSelection } from "@sailkit/link";
 
-export const LinkEdit: React.FC<{
+export const LinkURLEditor: React.FC<{
   text: string;
   href: string;
   onOk: (arg: { text: string; href: string }) => void;
@@ -62,52 +58,4 @@ export const LinkEdit: React.FC<{
       </Row>
     </div>
   );
-};
-
-export const showLinkEditor = (editor: Editor, dom?: HTMLElement) => {
-  const linkAtSelection = getLinkAtSelection(editor);
-
-  if (!linkAtSelection) {
-    return;
-  }
-
-  const div = document.createElement("div");
-  div.className = "bubble-menu";
-
-  // eslint-disable-next-line prefer-const
-  let popup: TippyInstance[];
-
-  ReactDOM.render(
-    <LinkEdit
-      text={linkAtSelection.text}
-      href={linkAtSelection.href}
-      onOk={(values) => {
-        popup?.[0]?.hide();
-        linkAtSelection.update(values);
-      }}
-      onCancel={() => {
-        popup?.[0]?.hide();
-        editor.chain().focus().run();
-      }}
-    />,
-    div,
-  );
-
-  popup = tippy("body", {
-    getReferenceClientRect: () =>
-      dom
-        ? dom.getBoundingClientRect()
-        : posToDOMRect(editor.view, linkAtSelection.start, linkAtSelection.end),
-    appendTo: () => editor.options.element,
-    content: div,
-    showOnCreate: true,
-    interactive: true,
-    trigger: "manual",
-    placement: "bottom-start",
-    theme: "bubble-menu padding-8",
-    arrow: false,
-    onHide() {
-      ReactDOM.unmountComponentAtNode(div);
-    },
-  });
 };

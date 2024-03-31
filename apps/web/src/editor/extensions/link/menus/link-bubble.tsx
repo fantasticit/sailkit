@@ -1,11 +1,14 @@
 import React, { useRef, useCallback } from "react";
 import { Editor } from "@sailkit/react";
 import { useAttrs, BubbleMenu } from "@sailkit/react";
-import { Link } from "@sailkit/link";
+import { Link, getLinkAtSelection } from "@sailkit/link";
 
-import { Button, Divider, Space } from "@douyinfe/semi-ui";
+import { Button, Divider, Space, Dropdown } from "@douyinfe/semi-ui";
 
-import { showLinkEditor } from "./edit";
+import { LinkView, LinkViewSwitch, LinkViewSwitchProps } from "../components/link-view-switch";
+
+import { showLinkURLEditor } from "../utilities/showLinkURLEditor";
+import { setToLinkCard } from "@sailkit/link-card";
 
 interface IProps {
   editor: Editor;
@@ -29,11 +32,31 @@ export const LinkBubbleMenu: React.FC<IProps> = ({ editor }) => {
   }, [href]);
 
   const openEditLinkModal = useCallback(() => {
-    showLinkEditor(editor, containerRef.current as HTMLElement);
+    showLinkURLEditor(editor, containerRef.current as HTMLElement);
   }, [editor]);
 
   const unsetLink = useCallback(
     () => editor.chain().extendMarkRange(Link.name).unsetLink().run(),
+    [editor],
+  );
+
+  const switchLinkView = useCallback<LinkViewSwitchProps["onOk"]>(
+    ({ type }) => {
+      const linkAtSelection = getLinkAtSelection(editor);
+
+      if (!linkAtSelection) {
+        return;
+      }
+
+      const { start, end, text, href } = linkAtSelection;
+
+      if (type === LinkView.Link) return;
+
+      if (type === LinkView.Card) {
+        setToLinkCard(editor, { start, end, text, href });
+        return;
+      }
+    },
     [editor],
   );
 
@@ -48,6 +71,10 @@ export const LinkBubbleMenu: React.FC<IProps> = ({ editor }) => {
           <Button size="small" onClick={openEditLinkModal}>
             编辑
           </Button>
+
+          <Dropdown render={<LinkViewSwitch onOk={switchLinkView} />} clickToHide>
+            <Button size="small">链接视图</Button>
+          </Dropdown>
 
           <Divider />
 

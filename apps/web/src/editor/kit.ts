@@ -1,15 +1,6 @@
 import { Document } from "@sailkit/document";
-import { Link } from "@sailkit/link";
 import { TextKit } from "@sailkit/text-kit";
-import { LinkCard } from "@sailkit/link-card";
 
-import { onLinkSet } from "./menus/link";
+import { LinkExtensions } from "./extensions/link";
 
-export const FullExtensions = [
-  Document,
-  TextKit,
-  Link.configure({
-    onLinkSet,
-  }),
-  LinkCard,
-];
+export const FullExtensions = [Document, TextKit, ...LinkExtensions];

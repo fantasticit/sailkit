@@ -3,13 +3,13 @@ import React, { useCallback } from "react";
 import { Button, Tooltip } from "@douyinfe/semi-ui";
 import { Editor, useActive } from "@sailkit/react";
 import { Link as LinkExtension } from "@sailkit/link";
-import { showLinkEditor } from "./edit";
+import { showLinkURLEditor } from "../utilities/showLinkURLEditor";
 
 export const LinkStaticMenu: React.FC<{ editor: Editor }> = ({ editor }) => {
   const isLinkActive = useActive(editor, LinkExtension.name);
 
   const toggleLink = useCallback(() => {
-    showLinkEditor(editor);
+    showLinkURLEditor(editor);
   }, [editor]);
 
   return (
