@@ -127,7 +127,7 @@ export const Link = Mark.create<LinkOptions>({
     return {
       openOnClick: false,
       linkOnPaste: true,
-      autolink: true,
+      autolink: false,
       protocols: [],
       HTMLAttributes: {
         target: "_blank",

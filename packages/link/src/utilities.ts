@@ -1,4 +1,4 @@
-import { Editor, getMarkRange, isMarkActive } from "@sailkit/core";
+import { Editor, getMarkRange, isMarkActive, selectionToInsertionEnd } from "@sailkit/core";
 
 import { Link } from "./link";
 
@@ -7,7 +7,6 @@ type LinkAtSelection = {
   href: string;
   start: number;
   end: number;
-  update: (arg: { text: string; href: string }) => boolean;
 };
 
 export const setToLink = (editor: Editor, options: Omit<LinkAtSelection, "update">) => {
@@ -25,6 +24,7 @@ export const setToLink = (editor: Editor, options: Omit<LinkAtSelection, "update
       tr.scrollIntoView();
       tr.removeStoredMark(schema.marks.link);
       tr.setMeta("preventOnLinkSetHook", true);
+      selectionToInsertionEnd(tr, tr.steps.length - 1, -1);
       return dispatch?.(tr);
     })
     .focus()
@@ -65,8 +65,5 @@ export const getLinkAtSelection = (editor: Editor): LinkAtSelection | null => {
     href,
     start,
     end,
-    update: ({ text, href }) => {
-      return setToLink(editor, { text, href, start, end });
-    },
   };
 };
