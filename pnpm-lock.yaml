@@ -65,7 +65,7 @@ importers:
         specifier: ^2.55.2
         version: 2.55.2(react-dom@18.2.0)(react@18.2.0)
       "@sailkit/blocktile":
-        specifier: workspace:0.0.1-beta.2
+        specifier: workspace:^
         version: link:../../packages/blocktile
       "@sailkit/bubble-menu":
         specifier: workspace:^
@@ -88,6 +88,9 @@ importers:
       "@sailkit/text-kit":
         specifier: workspace:^
         version: link:../../packages/text-kit
+      "@sailkit/uuid":
+        specifier: workspace:^
+        version: link:../../packages/uuid
       react:
         specifier: ^18.2.0
         version: 18.2.0
@@ -248,6 +251,25 @@ importers:
       "@sailkit/core":
         specifier: workspace:^
         version: link:../core
+      typescript:
+        specifier: ^5.2.2
+        version: 5.4.3
+      vite:
+        specifier: ^5.2.0
+        version: 5.2.7(@types/node@20.11.30)(sass@1.72.0)
+
+  packages/uuid:
+    dependencies:
+      uuid:
+        specifier: ^9.0.1
+        version: 9.0.1
+    devDependencies:
+      "@sailkit/core":
+        specifier: workspace:^
+        version: link:../core
+      "@types/uuid":
+        specifier: ^9.0.8
+        version: 9.0.8
       typescript:
         specifier: ^5.2.2
         version: 5.4.3
@@ -1876,6 +1898,13 @@ packages:
     resolution:
       {
         integrity: sha512-I8EUhyrgfLrcTkzV3TSsGyl1tSuPrEDzr0yd5m90UgNxQkyDXULk3b6MlQqTCpZpNtWe1K0hzclnZkTcLBe2UQ==,
+      }
+    dev: true
+
+  /@types/uuid@9.0.8:
+    resolution:
+      {
+        integrity: sha512-jg+97EGIcY9AGHJJRaaPVgetKDsrTgbRjQ5Msgjh/DQKEFl0DtyRr/VCOyD1T2R1MNeWPK/u7JoGhlDZnKBAfA==,
       }
     dev: true
 
@@ -6672,6 +6701,14 @@ packages:
         integrity: sha512-6Z7Ma2aVEWisaL6TvBCy7P8rm2LQoPv6dJ7ecIaIixHcwfbJ0x7mWdbcwlIM5IGQxPZSFYeqRCqlOOeKoJYMkw==,
       }
     engines: { node: ">= 4" }
+    dev: false
+
+  /uuid@9.0.1:
+    resolution:
+      {
+        integrity: sha512-b+1eJOlsR9K8HJpow9Ok3fiWOWSIcIzXodvv0rQjVoOVNpWMpxf1wZNpt4y9h10odCNrqnYp1OBzRktckBe3sA==,
+      }
+    hasBin: true
     dev: false
 
   /validator@13.11.0:
