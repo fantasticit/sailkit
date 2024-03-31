@@ -93,16 +93,11 @@ export function buildSingleEditorService<T>(Service: new (arg: Editor) => T) {
   return getter;
 }
 
-interface ThrottleFunction<T extends unknown[]> {
-  (...args: T): void;
-  cancel: () => void;
-}
-
 export const throttle = <T extends unknown[]>(
   fn: (...args: T) => unknown,
   wait: number,
   options: { leading: boolean; trailing: boolean } = { leading: false, trailing: false },
-): ThrottleFunction<T> => {
+) => {
   let timer: ReturnType<typeof setTimeout> | null = null;
   let pre: number = 0;
 
