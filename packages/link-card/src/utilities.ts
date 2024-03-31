@@ -1,4 +1,9 @@
-import { Editor, selectionToInsertionEnd } from "@sailkit/core";
+import {
+  Editor,
+  findParentNodeClosestToPos,
+  NodeSelection,
+  selectionToInsertionEnd,
+} from "@sailkit/core";
 
 import { LinkCard } from "./link-card";
 
@@ -25,4 +30,26 @@ export const setToLinkCard = (editor: Editor, options: Omit<LinkAtSelection, "up
       return dispatch?.(tr);
     })
     .run();
+};
+
+export const getLinkCardAtSelection = (editor: Editor): LinkAtSelection | null => {
+  const { state } = editor;
+  const selection = state.selection as NodeSelection;
+
+  const maybeLinkCard =
+    selection?.node?.type?.name === LinkCard.name
+      ? {
+          pos: selection.from,
+          node: selection.node,
+        }
+      : findParentNodeClosestToPos(selection.$head, (node) => node.type.name === LinkCard.name);
+
+  if (!maybeLinkCard) return null;
+
+  return {
+    start: maybeLinkCard.pos,
+    end: maybeLinkCard.pos + maybeLinkCard.node.nodeSize,
+    text: maybeLinkCard.node.attrs.text,
+    href: maybeLinkCard.node.attrs.href,
+  };
 };

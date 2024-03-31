@@ -38,6 +38,9 @@ export const LinkCard = Node.create<LinkCardOptions>({
 
   addAttributes() {
     return {
+      text: {
+        default: "",
+      },
       href: {
         default: null,
       },
