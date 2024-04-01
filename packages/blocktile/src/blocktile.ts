@@ -2,6 +2,7 @@ import {
   getNodeType,
   mergeAttributes,
   Node,
+  NodeSelection,
   NodeViewRendererProps,
   selectionToInsertionEnd,
 } from "@sailkit/core";
@@ -49,66 +50,65 @@ export const BlockTile = Node.create({
 
   addCommands() {
     return {
+      // TODO: handleBackspace
+      // TODO: handleDelete
       enterInBlockTile:
         () =>
         ({ state, dispatch, tr }) => {
           const { selection, doc } = state;
-          const { $from } = selection;
+          const { $to } = selection;
           const maybeBlockTile = getBlockTileAtPos(doc, selection.$anchor.pos);
 
           if (!maybeBlockTile) return false;
 
-          const { node, parent, start, end } = maybeBlockTile;
+          const { node, end } = maybeBlockTile;
 
           if (!node.firstChild) return false;
 
           const blockTileType = getNodeType(this.name, state.schema);
           const paragraphType = getNodeType("paragraph", state.schema);
 
+          // newlineInCode
           if (node.firstChild.type.spec.code) {
-            const isAtEnd = $from.parentOffset === $from.parent.nodeSize - 2;
+            const isAtEnd = $to.parentOffset === $to.parent.nodeSize - 2;
             const endsWithDoubleNewline = node.firstChild.textContent.endsWith("\n\n");
 
             if (!isAtEnd || !endsWithDoubleNewline) {
               tr.insertText("\n");
             } else {
-              tr.delete($from.pos - 2, $from.pos).insert(
-                $from.pos - 2 + 1,
+              tr.delete($to.pos - 2, $to.pos).insert(
+                $to.pos - 2 + 1,
                 blockTileType.create(null, paragraphType.create(null)),
               );
-            }
-          } else if (
-            parent &&
-            parent.type.name !== "doc" &&
-            parent.type.name !== this.name &&
-            parent.type.spec.content?.includes(this.name)
-          ) {
-            const isAtEnd = parent.lastChild?.eq(node);
-            const endsWithNewline = node.nodeSize === 4;
-
-            if (isAtEnd && endsWithNewline) {
-              tr.delete(start - 1, end).insert(
-                start - 1 + 2,
-                blockTileType.create(null, paragraphType.create(null)),
-              );
-            }
-          } else if (node.nodeSize === 4) {
-            if (node.firstChild.isTextblock) {
-              tr.replaceRangeWith(start, end, paragraphType.create(null));
             }
           }
 
-          if (!tr.steps.length && node.firstChild.type.name === "paragraph") {
-            const nodeAfter = selection.$anchor.nodeAfter;
+          // TODO: liftEmptyBlockTile
 
-            if (nodeAfter && nodeAfter.nodeSize) {
-              const pos = end - nodeAfter.nodeSize - 1;
-              tr.delete(pos, end).insert(
-                pos + 1,
-                blockTileType.create(null, paragraphType.create(null, nodeAfter)),
+          // splitBlockTile
+          if (!tr.steps.length) {
+            if (selection instanceof NodeSelection && selection.node.isBlock) {
+              tr.insert(
+                tr.mapping.map(end + 1),
+                blockTileType.create(null, paragraphType.create(null)),
               );
             } else {
-              tr.insert(end, blockTileType.create(null, paragraphType.create(null)));
+              const nodeAfter = $to.nodeAfter;
+
+              if (nodeAfter) {
+                const pos = end - nodeAfter.nodeSize - 1;
+                tr.deleteSelection()
+                  .delete(tr.mapping.map(pos), tr.mapping.map(end))
+                  .insert(
+                    tr.mapping.map(pos + 1),
+                    blockTileType.create(null, paragraphType.create(null, nodeAfter)),
+                  );
+              } else {
+                tr.deleteSelection().insert(
+                  tr.mapping.map(end + 1),
+                  blockTileType.create(null, paragraphType.create(null)),
+                );
+              }
             }
           }
 
