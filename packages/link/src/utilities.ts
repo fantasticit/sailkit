@@ -20,7 +20,7 @@ export const setToLink = (editor: Editor, options: Omit<LinkAtSelection, "update
       const from = tr.mapping.map(start);
       const to = tr.mapping.map(end);
       tr.deleteRange(from, to);
-      tr.insert(from, node);
+      tr.insert(tr.mapping.map(from), node);
       tr.scrollIntoView();
       tr.removeStoredMark(schema.marks.link);
       tr.setMeta("preventOnLinkSetHook", true);

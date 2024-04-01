@@ -22,10 +22,11 @@ export const setToLinkCard = (editor: Editor, options: Omit<LinkAtSelection, "up
     .command(({ tr, dispatch, state }) => {
       const schema = state.schema;
       const node = schema.nodes[LinkCard.name].create({ text, href });
-      const from = tr.mapping.map(Math.max(0, start - 1));
+      const $start = tr.doc.resolve(start);
+      const from = tr.mapping.map(Math.max(0, start - ($start.nodeBefore ? 0 : $start.depth)));
       const to = tr.mapping.map(end);
       tr.deleteRange(from, to);
-      tr.insert(from, node);
+      tr.insert(tr.mapping.map(from), node);
       selectionToInsertionEnd(tr, tr.steps.length - 1, -1);
       return dispatch?.(tr);
     })
