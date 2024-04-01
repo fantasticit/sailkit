@@ -8,7 +8,7 @@
   display: flex;
   align-items: center;
   padding: 8px 12px;
-  padding: calc(var(--otl-scale, 1) * 8px) calc(var(--otl-scale, 1) * 12px);
+  padding: calc(var(--sailkit-scale, 1) * 8px) calc(var(--sailkit-scale, 1) * 12px);
   background: hsla(0, 0%, 100%, 0.48);
   box-shadow:
     0 1px 2px 0 rgba(0, 0, 0, 0.12),
