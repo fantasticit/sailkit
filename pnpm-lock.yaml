@@ -77,7 +77,7 @@ importers:
         specifier: workspace:^
         version: link:../../packages/document
       "@sailkit/heading":
-        specifier: workspace:0.0.1-beta.5
+        specifier: workspace:^
         version: link:../../packages/heading
       "@sailkit/link":
         specifier: workspace:^
