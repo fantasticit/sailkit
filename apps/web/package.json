@@ -16,6 +16,7 @@
     "@sailkit/bubble-menu": "workspace:^",
     "@sailkit/core": "workspace:^",
     "@sailkit/document": "workspace:^",
+    "@sailkit/heading": "workspace:^",
     "@sailkit/link": "workspace:^",
     "@sailkit/link-card": "workspace:^",
     "@sailkit/react": "workspace:^",
