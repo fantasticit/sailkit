@@ -76,6 +76,9 @@ importers:
       "@sailkit/document":
         specifier: workspace:^
         version: link:../../packages/document
+      "@sailkit/heading":
+        specifier: workspace:0.0.1-beta.5
+        version: link:../../packages/heading
       "@sailkit/link":
         specifier: workspace:^
         version: link:../../packages/link
@@ -180,6 +183,18 @@ importers:
         version: 5.2.7(@types/node@20.11.30)(sass@1.72.0)
 
   packages/document:
+    devDependencies:
+      "@sailkit/core":
+        specifier: workspace:^
+        version: link:../core
+      typescript:
+        specifier: ^5.2.2
+        version: 5.4.3
+      vite:
+        specifier: ^5.2.0
+        version: 5.2.7(@types/node@20.11.30)(sass@1.72.0)
+
+  packages/heading:
     devDependencies:
       "@sailkit/core":
         specifier: workspace:^
