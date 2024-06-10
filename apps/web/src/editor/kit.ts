@@ -4,6 +4,7 @@ import { BlockTile } from "@sailkit/blocktile";
 import { Uuid } from "@sailkit/uuid";
 import { Heading } from "@sailkit/heading";
 import { HorizontalRule } from "@sailkit/horizontal-rule";
+import { Dropcursor } from "@sailkit/dropcursor";
 
 import { LinkExtensions } from "./extensions/link";
 
@@ -14,5 +15,6 @@ export const FullExtensions = [
   TextKit,
   Heading,
   HorizontalRule,
+  Dropcursor,
   ...LinkExtensions,
 ];
