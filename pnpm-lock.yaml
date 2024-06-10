@@ -77,8 +77,11 @@ importers:
         specifier: workspace:^
         version: link:../../packages/document
       "@sailkit/dropcursor":
-        specifier: workspace:0.0.1-beta.7
+        specifier: workspace:^
         version: link:../../packages/dropcursor
+      "@sailkit/gapcursor":
+        specifier: workspace:0.0.1-beta.7
+        version: link:../../packages/gapcursor
       "@sailkit/heading":
         specifier: workspace:^
         version: link:../../packages/heading
@@ -210,7 +213,19 @@ importers:
         version: 5.4.3
       vite:
         specifier: ^5.2.0
-        version: 5.2.7
+        version: 5.2.7(@types/node@20.11.30)(sass@1.72.0)
+
+  packages/gapcursor:
+    devDependencies:
+      "@sailkit/core":
+        specifier: workspace:^
+        version: link:../core
+      typescript:
+        specifier: ^5.2.2
+        version: 5.4.3
+      vite:
+        specifier: ^5.2.0
+        version: 5.2.7(@types/node@20.11.30)(sass@1.72.0)
 
   packages/heading:
     devDependencies:
@@ -6806,44 +6821,6 @@ packages:
       - "@types/node"
       - rollup
       - supports-color
-    dev: true
-
-  /vite@5.2.7:
-    resolution:
-      {
-        integrity: sha512-k14PWOKLI6pMaSzAuGtT+Cf0YmIx12z9YGon39onaJNy8DLBfBJrzg9FQEmkAM5lpHBZs9wksWAsyF/HkpEwJA==,
-      }
-    engines: { node: ^18.0.0 || >=20.0.0 }
-    hasBin: true
-    peerDependencies:
-      "@types/node": ^18.0.0 || >=20.0.0
-      less: "*"
-      lightningcss: ^1.21.0
-      sass: "*"
-      stylus: "*"
-      sugarss: "*"
-      terser: ^5.4.0
-    peerDependenciesMeta:
-      "@types/node":
-        optional: true
-      less:
-        optional: true
-      lightningcss:
-        optional: true
-      sass:
-        optional: true
-      stylus:
-        optional: true
-      sugarss:
-        optional: true
-      terser:
-        optional: true
-    dependencies:
-      esbuild: 0.20.2
-      postcss: 8.4.38
-      rollup: 4.13.2
-    optionalDependencies:
-      fsevents: 2.3.3
     dev: true
 
   /vite@5.2.7(@types/node@20.11.30)(sass@1.72.0):

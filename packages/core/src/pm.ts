@@ -1,4 +1,5 @@
 export * from "@tiptap/pm/dropcursor";
+export * from "@tiptap/pm/gapcursor";
 export {
   type AttributeSpec,
   type Attrs,

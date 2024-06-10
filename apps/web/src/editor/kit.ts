@@ -5,6 +5,7 @@ import { Uuid } from "@sailkit/uuid";
 import { Heading } from "@sailkit/heading";
 import { HorizontalRule } from "@sailkit/horizontal-rule";
 import { Dropcursor } from "@sailkit/dropcursor";
+import { Gapcursor } from "@sailkit/gapcursor";
 
 import { LinkExtensions } from "./extensions/link";
 
@@ -16,5 +17,6 @@ export const FullExtensions = [
   Heading,
   HorizontalRule,
   Dropcursor,
+  Gapcursor,
   ...LinkExtensions,
 ];

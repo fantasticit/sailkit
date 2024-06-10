@@ -17,6 +17,7 @@
     "@sailkit/core": "workspace:^",
     "@sailkit/document": "workspace:^",
     "@sailkit/dropcursor": "workspace:^",
+    "@sailkit/gapcursor": "workspace:0.0.1-beta.7",
     "@sailkit/heading": "workspace:^",
     "@sailkit/horizontal-rule": "workspace:^",
     "@sailkit/link": "workspace:^",
