@@ -79,6 +79,9 @@ importers:
       "@sailkit/heading":
         specifier: workspace:^
         version: link:../../packages/heading
+      "@sailkit/horizontal-rule":
+        specifier: workspace:0.0.1-beta.6
+        version: link:../../packages/horizontal-rule
       "@sailkit/link":
         specifier: workspace:^
         version: link:../../packages/link
@@ -195,6 +198,18 @@ importers:
         version: 5.2.7(@types/node@20.11.30)(sass@1.72.0)
 
   packages/heading:
+    devDependencies:
+      "@sailkit/core":
+        specifier: workspace:^
+        version: link:../core
+      typescript:
+        specifier: ^5.2.2
+        version: 5.4.3
+      vite:
+        specifier: ^5.2.0
+        version: 5.2.7(@types/node@20.11.30)(sass@1.72.0)
+
+  packages/horizontal-rule:
     devDependencies:
       "@sailkit/core":
         specifier: workspace:^

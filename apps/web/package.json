@@ -17,6 +17,7 @@
     "@sailkit/core": "workspace:^",
     "@sailkit/document": "workspace:^",
     "@sailkit/heading": "workspace:^",
+    "@sailkit/horizontal-rule": "workspace:0.0.1-beta.6",
     "@sailkit/link": "workspace:^",
     "@sailkit/link-card": "workspace:^",
     "@sailkit/react": "workspace:^",
