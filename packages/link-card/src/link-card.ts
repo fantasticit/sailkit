@@ -61,7 +61,7 @@ export const LinkCard = Node.create<LinkCardOptions>({
   },
 
   renderHTML({ HTMLAttributes }) {
-    return ["p", mergeAttributes(this.options.HTMLAttributes, HTMLAttributes), 0];
+    return ["div", mergeAttributes(this.options.HTMLAttributes, HTMLAttributes)];
   },
 
   addNodeView() {
